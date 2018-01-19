@@ -34,14 +34,7 @@ namespace Personal_Budgeter
 
         private void label1_TextChanged(object sender, EventArgs e)
         {
-            if (stringIsValidNumber(label1.Text))
-            {
-                if (parseNumber(label1.Text).CompareTo(0) <= 0)
-                    label1.ForeColor = System.Drawing.Color.Red;
-                else
-                    label1.ForeColor = System.Drawing.Color.Green;
-               
-            }
+           
         }
 
         private Boolean stringIsValidNumber(String str)
@@ -61,6 +54,41 @@ namespace Personal_Budgeter
         private decimal parseNumber(String str) //Round up the double from the string: we only care if it drops below zero
         {
             return Math.Ceiling(Decimal.Parse(str));
+        }
+
+        private void Remainder_TextChanged(object sender, EventArgs e)
+        {
+            if (stringIsValidNumber(this.Text))
+            {
+                if (parseNumber(WeeklyRemNumberLabel.Text).CompareTo(0) <= 0)
+                    this.ForeColor = System.Drawing.Color.Red;
+                else
+                    this.ForeColor = System.Drawing.Color.Green;
+
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReceiptEntryButton_Click(object sender, EventArgs e)
+        {
+            if (FoodCheckBox.CheckState) {
+                //parse the cents from text
+                //add those cents to the appropriate state
+            }
+            else if{
+
+            }
+            else if{
+
+            }
+            else if{
+
+            }
+            else
         }
     }
 }
