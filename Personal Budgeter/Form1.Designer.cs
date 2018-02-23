@@ -30,21 +30,21 @@
         {
             this.WeeklyRLabel = new System.Windows.Forms.Label();
             this.TotalRLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.WeeklyRemNumberLabel = new System.Windows.Forms.Label();
+            this.TotalRemNumberLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.VenFoodRadioButton = new System.Windows.Forms.RadioButton();
+            this.ProdRadioButton = new System.Windows.Forms.RadioButton();
+            this.EntRadioButton = new System.Windows.Forms.RadioButton();
+            this.FoodRadioButton = new System.Windows.Forms.RadioButton();
+            this.ReceiptEntryButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.CumVenFoodExpLabel = new System.Windows.Forms.Label();
+            this.CumProdExpLabel = new System.Windows.Forms.Label();
+            this.CumEntExpLabel = new System.Windows.Forms.Label();
+            this.CumFoodExpLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -71,92 +71,94 @@
             this.TotalRLabel.TabIndex = 1;
             this.TotalRLabel.Text = "Total Remaining Budget: ";
             // 
-            // label1
+            // WeeklyRemNumberLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(419, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
-            this.label1.TextChanged += new System.EventHandler(this.label1_TextChanged);
+            this.WeeklyRemNumberLabel.AutoSize = true;
+            this.WeeklyRemNumberLabel.Location = new System.Drawing.Point(419, 9);
+            this.WeeklyRemNumberLabel.Name = "WeeklyRemNumberLabel";
+            this.WeeklyRemNumberLabel.Size = new System.Drawing.Size(46, 17);
+            this.WeeklyRemNumberLabel.TabIndex = 2;
+            this.WeeklyRemNumberLabel.Text = "label1";
+            this.WeeklyRemNumberLabel.TextChanged += new System.EventHandler(this.Remainder_TextChanged);
             // 
-            // label2
+            // TotalRemNumberLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(419, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.TotalRemNumberLabel.AutoSize = true;
+            this.TotalRemNumberLabel.Location = new System.Drawing.Point(419, 26);
+            this.TotalRemNumberLabel.Name = "TotalRemNumberLabel";
+            this.TotalRemNumberLabel.Size = new System.Drawing.Size(46, 17);
+            this.TotalRemNumberLabel.TabIndex = 3;
+            this.TotalRemNumberLabel.Text = "label2";
+            this.TotalRemNumberLabel.TextChanged += new System.EventHandler(this.Remainder_TextChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.VenFoodRadioButton);
+            this.groupBox1.Controls.Add(this.ProdRadioButton);
+            this.groupBox1.Controls.Add(this.EntRadioButton);
+            this.groupBox1.Controls.Add(this.FoodRadioButton);
+            this.groupBox1.Controls.Add(this.ReceiptEntryButton);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(16, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(209, 184);
+            this.groupBox1.Size = new System.Drawing.Size(209, 194);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Receipt Entry:";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // button1
+            // VenFoodRadioButton
             // 
-            this.button1.Location = new System.Drawing.Point(42, 153);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 25);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Enter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.VenFoodRadioButton.AutoSize = true;
+            this.VenFoodRadioButton.Location = new System.Drawing.Point(71, 132);
+            this.VenFoodRadioButton.Name = "VenFoodRadioButton";
+            this.VenFoodRadioButton.Size = new System.Drawing.Size(109, 21);
+            this.VenFoodRadioButton.TabIndex = 10;
+            this.VenFoodRadioButton.Text = "Venmo Food";
+            this.VenFoodRadioButton.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // ProdRadioButton
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(71, 130);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(110, 21);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "Venmo Food";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.ProdRadioButton.AutoSize = true;
+            this.ProdRadioButton.Location = new System.Drawing.Point(71, 105);
+            this.ProdRadioButton.Name = "ProdRadioButton";
+            this.ProdRadioButton.Size = new System.Drawing.Size(85, 21);
+            this.ProdRadioButton.TabIndex = 9;
+            this.ProdRadioButton.Text = "Products";
+            this.ProdRadioButton.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // EntRadioButton
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(71, 103);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(86, 21);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "Products";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.EntRadioButton.AutoSize = true;
+            this.EntRadioButton.Location = new System.Drawing.Point(71, 78);
+            this.EntRadioButton.Name = "EntRadioButton";
+            this.EntRadioButton.Size = new System.Drawing.Size(117, 21);
+            this.EntRadioButton.TabIndex = 8;
+            this.EntRadioButton.Text = "Entertainment";
+            this.EntRadioButton.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // FoodRadioButton
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(71, 76);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(118, 21);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Entertainment";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.FoodRadioButton.AutoSize = true;
+            this.FoodRadioButton.Checked = true;
+            this.FoodRadioButton.Location = new System.Drawing.Point(71, 51);
+            this.FoodRadioButton.Name = "FoodRadioButton";
+            this.FoodRadioButton.Size = new System.Drawing.Size(61, 21);
+            this.FoodRadioButton.TabIndex = 7;
+            this.FoodRadioButton.TabStop = true;
+            this.FoodRadioButton.Text = "Food";
+            this.FoodRadioButton.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // ReceiptEntryButton
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(71, 49);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(62, 21);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Food";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ReceiptEntryButton.Location = new System.Drawing.Point(42, 159);
+            this.ReceiptEntryButton.Name = "ReceiptEntryButton";
+            this.ReceiptEntryButton.Size = new System.Drawing.Size(75, 25);
+            this.ReceiptEntryButton.TabIndex = 6;
+            this.ReceiptEntryButton.Text = "Enter";
+            this.ReceiptEntryButton.UseVisualStyleBackColor = true;
+            this.ReceiptEntryButton.Click += new System.EventHandler(this.ReceiptEntryButton_Click);
             // 
             // label3
             // 
@@ -177,56 +179,56 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.CumVenFoodExpLabel);
+            this.groupBox2.Controls.Add(this.CumProdExpLabel);
+            this.groupBox2.Controls.Add(this.CumEntExpLabel);
+            this.groupBox2.Controls.Add(this.CumFoodExpLabel);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(234, 46);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(351, 151);
+            this.groupBox2.Size = new System.Drawing.Size(351, 161);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Expense by Categorry";
             // 
-            // label11
+            // CumVenFoodExpLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(250, 112);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 17);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "label11";
+            this.CumVenFoodExpLabel.AutoSize = true;
+            this.CumVenFoodExpLabel.Location = new System.Drawing.Point(250, 112);
+            this.CumVenFoodExpLabel.Name = "CumVenFoodExpLabel";
+            this.CumVenFoodExpLabel.Size = new System.Drawing.Size(54, 17);
+            this.CumVenFoodExpLabel.TabIndex = 9;
+            this.CumVenFoodExpLabel.Text = "label11";
             // 
-            // label10
+            // CumProdExpLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(250, 81);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 17);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "label10";
+            this.CumProdExpLabel.AutoSize = true;
+            this.CumProdExpLabel.Location = new System.Drawing.Point(250, 81);
+            this.CumProdExpLabel.Name = "CumProdExpLabel";
+            this.CumProdExpLabel.Size = new System.Drawing.Size(54, 17);
+            this.CumProdExpLabel.TabIndex = 8;
+            this.CumProdExpLabel.Text = "label10";
             // 
-            // label9
+            // CumEntExpLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(250, 49);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 17);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "label9";
+            this.CumEntExpLabel.AutoSize = true;
+            this.CumEntExpLabel.Location = new System.Drawing.Point(250, 49);
+            this.CumEntExpLabel.Name = "CumEntExpLabel";
+            this.CumEntExpLabel.Size = new System.Drawing.Size(46, 17);
+            this.CumEntExpLabel.TabIndex = 7;
+            this.CumEntExpLabel.Text = "label9";
             // 
-            // label8
+            // CumFoodExpLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(250, 18);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 17);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "label8";
+            this.CumFoodExpLabel.AutoSize = true;
+            this.CumFoodExpLabel.Location = new System.Drawing.Point(250, 18);
+            this.CumFoodExpLabel.Name = "CumFoodExpLabel";
+            this.CumFoodExpLabel.Size = new System.Drawing.Size(46, 17);
+            this.CumFoodExpLabel.TabIndex = 6;
+            this.CumFoodExpLabel.Text = "label8";
             // 
             // label7
             // 
@@ -271,12 +273,14 @@
             this.ClientSize = new System.Drawing.Size(597, 212);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TotalRemNumberLabel);
+            this.Controls.Add(this.WeeklyRemNumberLabel);
             this.Controls.Add(this.TotalRLabel);
             this.Controls.Add(this.WeeklyRLabel);
             this.Name = "Form1";
             this.Text = "Personal Budgeter";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -290,25 +294,25 @@
 
         private System.Windows.Forms.Label WeeklyRLabel;
         private System.Windows.Forms.Label TotalRLabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label WeeklyRemNumberLabel;
+        private System.Windows.Forms.Label TotalRemNumberLabel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button ReceiptEntryButton;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label CumVenFoodExpLabel;
+        private System.Windows.Forms.Label CumProdExpLabel;
+        private System.Windows.Forms.Label CumEntExpLabel;
+        private System.Windows.Forms.Label CumFoodExpLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton VenFoodRadioButton;
+        private System.Windows.Forms.RadioButton ProdRadioButton;
+        private System.Windows.Forms.RadioButton EntRadioButton;
+        private System.Windows.Forms.RadioButton FoodRadioButton;
     }
 }
 
