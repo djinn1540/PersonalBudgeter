@@ -33,6 +33,10 @@
             this.WeeklyRemNumberLabel = new System.Windows.Forms.Label();
             this.TotalRemNumberLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.VenFoodRadioButton = new System.Windows.Forms.RadioButton();
+            this.ProdRadioButton = new System.Windows.Forms.RadioButton();
+            this.EntRadioButton = new System.Windows.Forms.RadioButton();
+            this.FoodRadioButton = new System.Windows.Forms.RadioButton();
             this.ReceiptEntryButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -45,10 +49,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.FoodRadioButton = new System.Windows.Forms.RadioButton();
-            this.ProdRadioButton = new System.Windows.Forms.RadioButton();
-            this.VenFoodRadioButton = new System.Windows.Forms.RadioButton();
-            this.EntRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +107,48 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Receipt Entry:";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // VenFoodRadioButton
+            // 
+            this.VenFoodRadioButton.AutoSize = true;
+            this.VenFoodRadioButton.Location = new System.Drawing.Point(71, 132);
+            this.VenFoodRadioButton.Name = "VenFoodRadioButton";
+            this.VenFoodRadioButton.Size = new System.Drawing.Size(109, 21);
+            this.VenFoodRadioButton.TabIndex = 10;
+            this.VenFoodRadioButton.Text = "Venmo Food";
+            this.VenFoodRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // ProdRadioButton
+            // 
+            this.ProdRadioButton.AutoSize = true;
+            this.ProdRadioButton.Location = new System.Drawing.Point(71, 105);
+            this.ProdRadioButton.Name = "ProdRadioButton";
+            this.ProdRadioButton.Size = new System.Drawing.Size(85, 21);
+            this.ProdRadioButton.TabIndex = 9;
+            this.ProdRadioButton.Text = "Products";
+            this.ProdRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // EntRadioButton
+            // 
+            this.EntRadioButton.AutoSize = true;
+            this.EntRadioButton.Location = new System.Drawing.Point(71, 78);
+            this.EntRadioButton.Name = "EntRadioButton";
+            this.EntRadioButton.Size = new System.Drawing.Size(117, 21);
+            this.EntRadioButton.TabIndex = 8;
+            this.EntRadioButton.Text = "Entertainment";
+            this.EntRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // FoodRadioButton
+            // 
+            this.FoodRadioButton.AutoSize = true;
+            this.FoodRadioButton.Checked = true;
+            this.FoodRadioButton.Location = new System.Drawing.Point(71, 51);
+            this.FoodRadioButton.Name = "FoodRadioButton";
+            this.FoodRadioButton.Size = new System.Drawing.Size(61, 21);
+            this.FoodRadioButton.TabIndex = 7;
+            this.FoodRadioButton.TabStop = true;
+            this.FoodRadioButton.Text = "Food";
+            this.FoodRadioButton.UseVisualStyleBackColor = true;
             // 
             // ReceiptEntryButton
             // 
@@ -224,48 +266,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Cumulative Food Expense:";
             // 
-            // FoodRadioButton
-            // 
-            this.FoodRadioButton.AutoSize = true;
-            this.FoodRadioButton.Checked = true;
-            this.FoodRadioButton.Location = new System.Drawing.Point(71, 51);
-            this.FoodRadioButton.Name = "FoodRadioButton";
-            this.FoodRadioButton.Size = new System.Drawing.Size(61, 21);
-            this.FoodRadioButton.TabIndex = 7;
-            this.FoodRadioButton.TabStop = true;
-            this.FoodRadioButton.Text = "Food";
-            this.FoodRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // ProdRadioButton
-            // 
-            this.ProdRadioButton.AutoSize = true;
-            this.ProdRadioButton.Location = new System.Drawing.Point(71, 105);
-            this.ProdRadioButton.Name = "ProdRadioButton";
-            this.ProdRadioButton.Size = new System.Drawing.Size(85, 21);
-            this.ProdRadioButton.TabIndex = 9;
-            this.ProdRadioButton.Text = "Products";
-            this.ProdRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // VenFoodRadioButton
-            // 
-            this.VenFoodRadioButton.AutoSize = true;
-            this.VenFoodRadioButton.Location = new System.Drawing.Point(71, 132);
-            this.VenFoodRadioButton.Name = "VenFoodRadioButton";
-            this.VenFoodRadioButton.Size = new System.Drawing.Size(109, 21);
-            this.VenFoodRadioButton.TabIndex = 10;
-            this.VenFoodRadioButton.Text = "Venmo Food";
-            this.VenFoodRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // EntRadioButton
-            // 
-            this.EntRadioButton.AutoSize = true;
-            this.EntRadioButton.Location = new System.Drawing.Point(71, 78);
-            this.EntRadioButton.Name = "EntRadioButton";
-            this.EntRadioButton.Size = new System.Drawing.Size(117, 21);
-            this.EntRadioButton.TabIndex = 8;
-            this.EntRadioButton.Text = "Entertainment";
-            this.EntRadioButton.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -279,6 +279,7 @@
             this.Controls.Add(this.WeeklyRLabel);
             this.Name = "Form1";
             this.Text = "Personal Budgeter";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
