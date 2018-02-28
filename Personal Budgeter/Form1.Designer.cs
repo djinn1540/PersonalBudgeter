@@ -39,7 +39,7 @@
             this.FoodRadioButton = new System.Windows.Forms.RadioButton();
             this.ReceiptEntryButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ReceiptEntryTextBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.CumVenFoodExpLabel = new System.Windows.Forms.Label();
             this.CumProdExpLabel = new System.Windows.Forms.Label();
@@ -99,7 +99,7 @@
             this.groupBox1.Controls.Add(this.FoodRadioButton);
             this.groupBox1.Controls.Add(this.ReceiptEntryButton);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.ReceiptEntryTextBox);
             this.groupBox1.Location = new System.Drawing.Point(16, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(209, 194);
@@ -114,7 +114,7 @@
             this.VenFoodRadioButton.Location = new System.Drawing.Point(71, 132);
             this.VenFoodRadioButton.Name = "VenFoodRadioButton";
             this.VenFoodRadioButton.Size = new System.Drawing.Size(109, 21);
-            this.VenFoodRadioButton.TabIndex = 10;
+            this.VenFoodRadioButton.TabIndex = 3;
             this.VenFoodRadioButton.Text = "Venmo Food";
             this.VenFoodRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -124,7 +124,7 @@
             this.ProdRadioButton.Location = new System.Drawing.Point(71, 105);
             this.ProdRadioButton.Name = "ProdRadioButton";
             this.ProdRadioButton.Size = new System.Drawing.Size(85, 21);
-            this.ProdRadioButton.TabIndex = 9;
+            this.ProdRadioButton.TabIndex = 2;
             this.ProdRadioButton.Text = "Products";
             this.ProdRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -134,7 +134,7 @@
             this.EntRadioButton.Location = new System.Drawing.Point(71, 78);
             this.EntRadioButton.Name = "EntRadioButton";
             this.EntRadioButton.Size = new System.Drawing.Size(117, 21);
-            this.EntRadioButton.TabIndex = 8;
+            this.EntRadioButton.TabIndex = 1;
             this.EntRadioButton.Text = "Entertainment";
             this.EntRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -145,7 +145,7 @@
             this.FoodRadioButton.Location = new System.Drawing.Point(71, 51);
             this.FoodRadioButton.Name = "FoodRadioButton";
             this.FoodRadioButton.Size = new System.Drawing.Size(61, 21);
-            this.FoodRadioButton.TabIndex = 7;
+            this.FoodRadioButton.TabIndex = 5;
             this.FoodRadioButton.TabStop = true;
             this.FoodRadioButton.Text = "Food";
             this.FoodRadioButton.UseVisualStyleBackColor = true;
@@ -155,7 +155,7 @@
             this.ReceiptEntryButton.Location = new System.Drawing.Point(42, 159);
             this.ReceiptEntryButton.Name = "ReceiptEntryButton";
             this.ReceiptEntryButton.Size = new System.Drawing.Size(75, 25);
-            this.ReceiptEntryButton.TabIndex = 6;
+            this.ReceiptEntryButton.TabIndex = 4;
             this.ReceiptEntryButton.Text = "Enter";
             this.ReceiptEntryButton.UseVisualStyleBackColor = true;
             this.ReceiptEntryButton.Click += new System.EventHandler(this.ReceiptEntryButton_Click);
@@ -170,12 +170,12 @@
             this.label3.Text = "Amount:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // textBox1
+            // ReceiptEntryTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(71, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(118, 22);
-            this.textBox1.TabIndex = 0;
+            this.ReceiptEntryTextBox.Location = new System.Drawing.Point(71, 21);
+            this.ReceiptEntryTextBox.Name = "ReceiptEntryTextBox";
+            this.ReceiptEntryTextBox.Size = new System.Drawing.Size(118, 22);
+            this.ReceiptEntryTextBox.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -298,7 +298,7 @@
         private System.Windows.Forms.Label TotalRemNumberLabel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ReceiptEntryTextBox;
         private System.Windows.Forms.Button ReceiptEntryButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label CumVenFoodExpLabel;

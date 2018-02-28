@@ -9,51 +9,53 @@ namespace Personal_Budgeter
     [Serializable()]
     class MemStorage
     {
-        private int totalBudgetCents;
+        private decimal totalBudgetCents;
+        private DateTime endDate;
 
-        private int totalFoodCentsSpent;
-        private int totalEntertainmentCentsSpent;
-        private int totalProductsCentsSpent;
-        private int totalVenmoFoodCentsSpent;
+        private decimal totalFoodCentsSpent;
+        private decimal totalEntertainmentCentsSpent;
+        private decimal totalProductsCentsSpent;
+        private decimal totalVenmoFoodCentsSpent;
 
         private int numberOfCategories = 4;
 
-        public MemStorage()
+        public MemStorage(decimal totalBudgetCents, DateTime endDate)
         {
-            //TODO input base information (can also be used to correct numbers)
+            this.totalBudgetCents = totalBudgetCents;
+            this.endDate = endDate;
         }
 
-        private void setTotalBudgetCents(int newCents)
+        private void setTotalBudgetCents(decimal newCents)
         {
             totalBudgetCents = newCents;
         }
 
-        public int getTotalBudgetCents()
+        public decimal getTotalBudgetCents()
         {
             return totalBudgetCents;
         }
 
-        public int getTotalFoodCentsSpent()
+        public decimal getTotalFoodCentsSpent()
         {
             return totalFoodCentsSpent;
         }
 
-        public int getTotalEntertainmentCentsSpent()
+        public decimal getTotalEntertainmentCentsSpent()
         {
             return totalEntertainmentCentsSpent;
         }
 
-        public int getTotalProductsCentsSpent()
+        public decimal getTotalProductsCentsSpent()
         {
             return totalProductsCentsSpent;
         }
 
-        public int getTotalVenmoFoodCentsSpent()
+        public decimal getTotalVenmoFoodCentsSpent()
         {
             return totalVenmoFoodCentsSpent;
         }
 
-        public void addCentsTo(int category, int centsToAdd)
+        public void addCentsTo(int category, decimal centsToAdd)
         {
             if (!(0 <= category && category < numberOfCategories))
                 //fail gracefully

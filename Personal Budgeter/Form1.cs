@@ -25,7 +25,7 @@ namespace Personal_Budgeter
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
+          
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace Personal_Budgeter
                 byte[] fileBytes = File.ReadAllBytes("data.xml");
                 if (fileBytes == null)
                 { //run the inputs
-                    inputsFunction (returns MemStorage obj)
+                    data = this.inputsFunction();
                 }
                 else
                 {
@@ -94,26 +94,34 @@ namespace Personal_Budgeter
                 }
             }
             else
-            {// run the inputs
+            {
+                data = this.inputsFunction();
 
             }
         }
 
         private void ReceiptEntryButton_Click(object sender, EventArgs e)
         {
+
             //parse the cents from text
+            DecimalConverter conv = new DecimalConverter();
+            decimal enteredDollars = (decimal)conv.ConvertFromString(ReceiptEntryTextBox.Text);
+            decimal centsToAdd = dollars2Cents(enteredDollars);
+
             if (FoodRadioButton.Checked) {
 
                 //add those cents to the appropriate state
+                data.addCentsTo(0, centsToAdd);
+
             }
             else if (EntRadioButton.Checked) {
-
+                data.addCentsTo(1, centsToAdd);
             }
             else if (ProdRadioButton.Checked) {
-
+                data.addCentsTo(2, centsToAdd);
             }
             else if (VenFoodRadioButton.Checked) {
-
+                data.addCentsTo(3, centsToAdd);
             }
             else;
             //update the screen
@@ -129,20 +137,30 @@ namespace Personal_Budgeter
             stream.Close();
         }
 
-        private void inputsFunction()
+        private MemStorage inputsFunction()
         {
             DecimalConverter converter = new DecimalConverter();
-            System.Console.Write("Please enter the amount that you wish to budget: ");
-            decimal totalBudgetDub = (decimal) converter.ConvertFromString(System.Console.ReadLine());
-            totalBudgetDub *= 100;
-            int totalBudgetCents = (int) Math.Floor(totalBudgetDub);
+            System.Console.Write("Please enter the amount that you wish to budget: $"); //todo change to apllication
+            decimal totalBudgetDollars = (decimal) converter.ConvertFromString(System.Console.ReadLine());
+            
+
+            DateTimeConverter conv = new DateTimeConverter();
+            System.Console.Write("Please enter the end date for the budget (Mon dd, yyyy) ex Jan 12, 2019: ");
+            DateTime endDate = (DateTime) conv.ConvertFromString(System.Console.ReadLine());
+
+            MemStorage applicationStorage = new MemStorage(this.dollars2Cents(totalBudgetDollars), endDate);
+
+            return applicationStorage;
             //remember that we are storing the numbers as integer penny amounts
-            //convert to pennies function to be used in reciept entry and input entry   
             /*todo:
                  * calculate weekly balanvce left by accessing the system date time
-                 * get entry for how many weeks the budget is for
-                 * maybe put in a savings calculation
+                 * maybe put in a savings calculation ***feature creep! 
                 */ 
+        }
+
+        private decimal dollars2Cents(decimal dollars)
+        {
+            return dollars * 100;
         }
     }
 }
