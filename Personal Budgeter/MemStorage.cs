@@ -10,7 +10,7 @@ namespace Personal_Budgeter
     class MemStorage
     {
         private decimal totalBudgetCents;
-        private DateTime endDate;
+        private String endDate; //we use a string for the end date because serialization doesn't fully store DateTime types
 
         private decimal totalFoodCentsSpent;
         private decimal totalEntertainmentCentsSpent;
@@ -22,7 +22,7 @@ namespace Personal_Budgeter
         public MemStorage(decimal totalBudgetCents, DateTime endDate)
         {
             this.totalBudgetCents = totalBudgetCents;
-            this.endDate = endDate;
+            this.endDate = endDate.ToString("O"); //the "O" is the roundtrip format specifier: meaning that the resulting string will contain all info to exactly recreate the date
         }
 
         private void setTotalBudgetCents(decimal newCents)

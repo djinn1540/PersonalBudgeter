@@ -76,17 +76,16 @@ namespace Personal_Budgeter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (File.Exists("data.xml"))
+            if (File.Exists(Constants.FILENAME))
             {
-                byte[] fileBytes = File.ReadAllBytes("data.xml");
-                if (fileBytes == null)
+                if (new FileInfo(Constants.FILENAME).Length == 0)
                 { //run the inputs
                     data = this.inputsFunction();
                 }
                 else
                 {
                     //open the serializable
-                    Stream stream = File.Open("data.xml", FileMode.Open);
+                    Stream stream = File.Open(Constants.FILENAME, FileMode.Open);
                     BinaryFormatter formatter = new BinaryFormatter();
 
                     data = (MemStorage)formatter.Deserialize(stream);
@@ -131,7 +130,7 @@ namespace Personal_Budgeter
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             //serialize data back into file
-            Stream stream = File.Open("data.xml", FileMode.Create);
+            Stream stream = File.Open(Constants.FILENAME, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(stream, data);
             stream.Close();
