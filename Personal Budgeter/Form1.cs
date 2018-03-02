@@ -139,14 +139,22 @@ namespace Personal_Budgeter
 
         private MemStorage inputsFunction()
         {
-            DecimalConverter converter = new DecimalConverter();
-            System.Console.Write("Please enter the amount that you wish to budget: $"); //todo change to apllication
-            decimal totalBudgetDollars = (decimal) converter.ConvertFromString(System.Console.ReadLine());
             
+            String input = null;
+            
+            while (input.Equals(null)) {
+                System.Console.Write("Please enter the amount that you wish to budget: $"); //todo change to apllication
+                input = System.Console.ReadLine();
+            }
+            decimal totalBudgetDollars = Decimal.Parse(input);
+            input = null;
+            DateTime endDate = new DateTime();
 
-            DateTimeConverter conv = new DateTimeConverter();
-            System.Console.Write("Please enter the end date for the budget (Mon dd, yyyy) ex Jan 12, 2019: ");
-            DateTime endDate = (DateTime) conv.ConvertFromString(System.Console.ReadLine());
+            while (input.Equals(null))
+            {
+                System.Console.Write("Please enter the end date for the budget (Mon dd, yyyy) ex Jan 12, 2019: ");
+                endDate = DateTime.Parse(input);
+            }
 
             MemStorage applicationStorage = new MemStorage(this.dollars2Cents(totalBudgetDollars), endDate);
 
