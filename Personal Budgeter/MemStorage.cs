@@ -9,53 +9,54 @@ namespace Personal_Budgeter
     [Serializable()]
     class MemStorage
     {
-        private decimal totalBudgetCents;
+        private decimal totalBudgetDollars;
         private String endDate; //we use a string for the end date because serialization doesn't fully store DateTime types
 
-        private decimal totalFoodCentsSpent;
-        private decimal totalEntertainmentCentsSpent;
-        private decimal totalProductsCentsSpent;
-        private decimal totalVenmoFoodCentsSpent;
+        private decimal totalFoodSpent;
+        private decimal totalEntertainmentSpent;
+        private decimal totalProductsSpent;
+        private decimal totalVenmoFoodSpent;
 
         private int numberOfCategories = 4;
 
         public MemStorage(decimal totalBudgetCents, DateTime endDate)
         {
-            this.totalBudgetCents = totalBudgetCents;
+            this.totalBudgetDollars = totalBudgetDollars;
+            this.totalFoodSpent = 0;
             this.endDate = endDate.ToString("O"); //the "O" is the roundtrip format specifier: meaning that the resulting string will contain all info to exactly recreate the date
         }
 
-        private void setTotalBudgetCents(decimal newCents)
+        private void setTotalBudgetDollars(decimal newDollarAmount)
         {
-            totalBudgetCents = newCents;
+            totalBudgetDollars = newDollarAmount;
         }
 
-        public decimal getTotalBudgetCents()
+        public decimal getTotalBudgetDollars()
         {
-            return totalBudgetCents;
+            return totalBudgetDollars;
         }
 
-        public decimal getTotalFoodCentsSpent()
+        public decimal getTotalFoodSpent()
         {
-            return totalFoodCentsSpent;
+            return totalFoodSpent;
         }
 
-        public decimal getTotalEntertainmentCentsSpent()
+        public decimal getTotalEntertainmentSpent()
         {
-            return totalEntertainmentCentsSpent;
+            return totalEntertainmentSpent;
         }
 
-        public decimal getTotalProductsCentsSpent()
+        public decimal getTotalProductsSpent()
         {
-            return totalProductsCentsSpent;
+            return totalProductsSpent;
         }
 
-        public decimal getTotalVenmoFoodCentsSpent()
+        public decimal getTotalVenmoFoodSpent()
         {
-            return totalVenmoFoodCentsSpent;
+            return totalVenmoFoodSpent;
         }
 
-        public void addCentsTo(int category, decimal centsToAdd)
+        public void addTo(int category, decimal dollarsToAdd)
         {
             if (!(0 <= category && category < numberOfCategories))
                 //fail gracefully
@@ -63,16 +64,16 @@ namespace Personal_Budgeter
             switch (category)
             {
                 case 0:
-                    totalFoodCentsSpent += centsToAdd;
+                    totalFoodSpent += dollarsToAdd;
                     break;
                 case 1:
-                    totalEntertainmentCentsSpent += centsToAdd;
+                    totalEntertainmentSpent += dollarsToAdd;
                     break;
                 case 2:
-                    totalProductsCentsSpent += centsToAdd;
+                    totalProductsSpent += dollarsToAdd;
                     break;
                 case 3:
-                    totalVenmoFoodCentsSpent += centsToAdd;
+                    totalVenmoFoodSpent += dollarsToAdd;
                     break;
                 default:
                     //fail gracefully

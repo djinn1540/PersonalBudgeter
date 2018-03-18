@@ -162,7 +162,7 @@ namespace Personal_Budgeter
             }
             
 
-            MemStorage applicationStorage = new MemStorage(this.dollars2Cents(totalBudgetDollars), endDate);
+            MemStorage applicationStorage = new MemStorage(totalBudgetDollars, endDate);
 
             return applicationStorage;
             //remember that we are storing the numbers as integer penny amounts
@@ -176,12 +176,13 @@ namespace Personal_Budgeter
 
         private void updateScreen()
         {
-            //make all the labels get stuff from data
-        }
+            //expense value labels are updated with values from the data object
+            CumFoodExpLabel.Text = data.getTotalFoodSpent().ToString("######.00");
+            CumEntExpLabel.Text = data.getTotalEntertainmentSpent().ToString("######.00");
+            CumProdExpLabel.Text = data.getTotalProductsSpent().ToString("######.00");
+            CumVenFoodExpLabel.Text =  data.getTotalVenmoFoodSpent().ToString("######.00");
 
-        private decimal dollars2Cents(decimal dollars)
-        {
-            return dollars * 100;
+
         }
     }
 }
