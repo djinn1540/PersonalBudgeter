@@ -63,22 +63,14 @@ namespace Personal_Budgeter
         }
 
         private void Remainder_TextChanged(object sender, EventArgs e)
-        {
-            if (stringIsValidNumber(this.Text))
-            {
-                if (parseNumber(WeeklyRemNumberLabel.Text).CompareTo(0) <= 0)
-                    this.ForeColor = System.Drawing.Color.Red;
-                else
-                    this.ForeColor = System.Drawing.Color.Green;
-
-            }
+        {  
+                
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             if (File.Exists(Constants.FILENAME))
             {
-                System.Console.Write("hey");
                 if (new FileInfo(Constants.FILENAME).Length == 0)
                 { //run the inputs
                     data = this.inputsFunction();
@@ -96,35 +88,36 @@ namespace Personal_Budgeter
             else
             {
                 data = this.inputsFunction();
-
             }
+            updateScreen();
         }
 
         private void ReceiptEntryButton_Click(object sender, EventArgs e)
         {
 
-            //parse the cents from text
+            //parse the amount from text
             DecimalConverter conv = new DecimalConverter();
             decimal enteredDollars = (decimal)conv.ConvertFromString(ReceiptEntryTextBox.Text);
-            decimal centsToAdd = dollars2Cents(enteredDollars);
+            
 
             if (FoodRadioButton.Checked) {
 
-                //add those cents to the appropriate state
-                data.addCentsTo(0, centsToAdd);
+                //add the amount to the appropriate state
+                data.addTo(0, enteredDollars);
 
             }
             else if (EntRadioButton.Checked) {
-                data.addCentsTo(1, centsToAdd);
+                data.addTo(1, enteredDollars);
             }
             else if (ProdRadioButton.Checked) {
-                data.addCentsTo(2, centsToAdd);
+                data.addTo(2, enteredDollars);
             }
             else if (VenFoodRadioButton.Checked) {
-                data.addCentsTo(3, centsToAdd);
+                data.addTo(3, enteredDollars);
             }
             else;
             //update the screen
+            updateScreen();
 
         }
 
@@ -161,7 +154,6 @@ namespace Personal_Budgeter
                 }
             }
             
-
             MemStorage applicationStorage = new MemStorage(totalBudgetDollars, endDate);
 
             return applicationStorage;
@@ -177,11 +169,30 @@ namespace Personal_Budgeter
         private void updateScreen()
         {
             //expense value labels are updated with values from the data object
-            CumFoodExpLabel.Text = data.getTotalFoodSpent().ToString("######.00");
-            CumEntExpLabel.Text = data.getTotalEntertainmentSpent().ToString("######.00");
-            CumProdExpLabel.Text = data.getTotalProductsSpent().ToString("######.00");
-            CumVenFoodExpLabel.Text =  data.getTotalVenmoFoodSpent().ToString("######.00");
+            CumFoodExpLabel.Text = data.getTotalFoodSpent().ToString("#####0.00");
+            CumEntExpLabel.Text = data.getTotalEntertainmentSpent().ToString("#####0.00");
+            CumProdExpLabel.Text = data.getTotalProductsSpent().ToString("#####0.00");
+            CumVenFoodExpLabel.Text = data.getTotalVenmoFoodSpent().ToString("#####0.00");
 
+            //remainder value labels are updated with values from the data object
+            TotalRemNumberLabel.Text = data.getTotalRemBudget().ToString("#####0.00");
+            if (data.getNumOfWeeks() > 0) {
+                WeeklyRemNumberLabel.Text = ((data.getTotalRemBudget() / data.getNumOfWeeks()) - data.getWeeklyExpenses()).ToString("#####0.00");
+            }
+            else
+            {
+                WeeklyRemNumberLabel.Text = (data.getTotalRemBudget() - data.getWeeklyExpenses()).ToString("#####0.00");
+            }
+
+            //colors of the text
+            if (data.getTotalRemBudget().CompareTo(0) <= 0)
+                TotalRemNumberLabel.ForeColor = System.Drawing.Color.Red;
+            else
+                TotalRemNumberLabel.ForeColor = System.Drawing.Color.Green;
+            if (data.getTotalRemBudget().CompareTo(0) <= 0)
+                WeeklyRemNumberLabel.ForeColor = System.Drawing.Color.Red;
+            else
+                WeeklyRemNumberLabel.ForeColor = System.Drawing.Color.Green;
 
         }
     }
