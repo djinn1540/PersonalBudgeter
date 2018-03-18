@@ -78,6 +78,7 @@ namespace Personal_Budgeter
         {
             if (File.Exists(Constants.FILENAME))
             {
+                System.Console.Write("hey");
                 if (new FileInfo(Constants.FILENAME).Length == 0)
                 { //run the inputs
                     data = this.inputsFunction();
@@ -141,19 +142,25 @@ namespace Personal_Budgeter
             
             String input = null;
             
-            while (input.Equals(null)) {
-                System.Console.Write("Please enter the amount that you wish to budget: $"); //todo change to apllication
-                input = System.Console.ReadLine();
+            while (input == null) {
+                input = Prompt.getUserInput("Input", "Please enter the total budget in USD: ");
             }
             decimal totalBudgetDollars = Decimal.Parse(input);
             input = null;
             DateTime endDate = new DateTime();
 
-            while (input.Equals(null))
+            while (input  == null)
             {
-                System.Console.Write("Please enter the end date for the budget (Mon dd, yyyy) ex Jan 12, 2019: ");
-                endDate = DateTime.Parse(input);
+                input = Prompt.getUserInput("Input", "Please enter the end date for the budget (Mon dd, yyyy) ex Jan 12, 2019: ");
+                try {
+                    endDate = DateTime.Parse(input);
+                }
+                catch(Exception e)
+                {
+                    input = null;
+                }
             }
+            
 
             MemStorage applicationStorage = new MemStorage(this.dollars2Cents(totalBudgetDollars), endDate);
 
@@ -163,6 +170,13 @@ namespace Personal_Budgeter
                  * calculate weekly balanvce left by accessing the system date time
                  * maybe put in a savings calculation ***feature creep! 
                 */ 
+        }
+
+        //todo updateScreen
+
+        private void updateScreen()
+        {
+            //make all the labels get stuff from data
         }
 
         private decimal dollars2Cents(decimal dollars)
