@@ -79,7 +79,6 @@
             this.WeeklyRemNumberLabel.Size = new System.Drawing.Size(46, 17);
             this.WeeklyRemNumberLabel.TabIndex = 2;
             this.WeeklyRemNumberLabel.Text = "label1";
-            this.WeeklyRemNumberLabel.TextChanged += new System.EventHandler(this.Remainder_TextChanged);
             // 
             // TotalRemNumberLabel
             // 
@@ -89,7 +88,6 @@
             this.TotalRemNumberLabel.Size = new System.Drawing.Size(46, 17);
             this.TotalRemNumberLabel.TabIndex = 3;
             this.TotalRemNumberLabel.Text = "label2";
-            this.TotalRemNumberLabel.TextChanged += new System.EventHandler(this.Remainder_TextChanged);
             // 
             // groupBox1
             // 

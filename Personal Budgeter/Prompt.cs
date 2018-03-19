@@ -13,7 +13,7 @@ namespace Personal_Budgeter
 {
     public static class Prompt
     {
-        public static string getUserInput(string title, string prompt)
+        public static string getUserInput(string title, string prompt) //prompts the user and returns the response (unless x'ed out)
         {
             Form promptForm = new Form()
             {

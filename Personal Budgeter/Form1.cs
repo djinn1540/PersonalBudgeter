@@ -62,11 +62,6 @@ namespace Personal_Budgeter
             return Math.Ceiling(Decimal.Parse(str));
         }
 
-        private void Remainder_TextChanged(object sender, EventArgs e)
-        {  
-                
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             if (File.Exists(Constants.FILENAME))
@@ -89,6 +84,7 @@ namespace Personal_Budgeter
             {
                 data = this.inputsFunction();
             }
+            System.Console.Write("heyo");
             updateScreen();
         }
 
@@ -101,10 +97,8 @@ namespace Personal_Budgeter
             
 
             if (FoodRadioButton.Checked) {
-
                 //add the amount to the appropriate state
                 data.addTo(0, enteredDollars);
-
             }
             else if (EntRadioButton.Checked) {
                 data.addTo(1, enteredDollars);
@@ -134,11 +128,21 @@ namespace Personal_Budgeter
         {
             
             String input = null;
-            
+            decimal totalBudgetDollars = 0;
+
+
             while (input == null) {
                 input = Prompt.getUserInput("Input", "Please enter the total budget in USD: ");
+                try
+                {
+                    totalBudgetDollars = Decimal.Parse(input);
+                }
+                catch(Exception e)
+                {
+                    input = null;
+                }
             }
-            decimal totalBudgetDollars = Decimal.Parse(input);
+            
             input = null;
             DateTime endDate = new DateTime();
 
@@ -164,7 +168,6 @@ namespace Personal_Budgeter
                 */ 
         }
 
-        //todo updateScreen
 
         private void updateScreen()
         {
@@ -177,11 +180,11 @@ namespace Personal_Budgeter
             //remainder value labels are updated with values from the data object
             TotalRemNumberLabel.Text = data.getTotalRemBudget().ToString("#####0.00");
             if (data.getNumOfWeeks() > 0) {
-                WeeklyRemNumberLabel.Text = ((data.getTotalRemBudget() / data.getNumOfWeeks()) - data.getWeeklyExpenses()).ToString("#####0.00");
+                WeeklyRemNumberLabel.Text = ((data.getRemBudgetWeekStart() / data.getNumOfWeeks()) - data.getWeeklyExpenses()).ToString("#####0.00");
             }
             else
             {
-                WeeklyRemNumberLabel.Text = (data.getTotalRemBudget() - data.getWeeklyExpenses()).ToString("#####0.00");
+                WeeklyRemNumberLabel.Text = (data.getRemBudgetWeekStart() - data.getWeeklyExpenses()).ToString("#####0.00");
             }
 
             //colors of the text
@@ -189,7 +192,7 @@ namespace Personal_Budgeter
                 TotalRemNumberLabel.ForeColor = System.Drawing.Color.Red;
             else
                 TotalRemNumberLabel.ForeColor = System.Drawing.Color.Green;
-            if (data.getTotalRemBudget().CompareTo(0) <= 0)
+            if (parseNumber(WeeklyRemNumberLabel.Text).CompareTo(0) <= 0)
                 WeeklyRemNumberLabel.ForeColor = System.Drawing.Color.Red;
             else
                 WeeklyRemNumberLabel.ForeColor = System.Drawing.Color.Green;
