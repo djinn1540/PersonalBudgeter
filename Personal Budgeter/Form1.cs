@@ -23,35 +23,19 @@ namespace Personal_Budgeter
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Validated(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
         private Boolean stringIsValidNumber(String str)
         {
             
-            char[] ValidChars = {'0','1','2','3','4','5','6','7','8','9','.'};
+            char[] validChars = {'0','1','2','3','4','5','6','7','8','9','.'};
             for(int i = 0; i < str.Length; i++)
             {
-                if (!ValidChars.Contains(str.ElementAt(i)))
+                if (!validChars.Contains(str.ElementAt(i)))
                 {
                     return false;
+                }
+                if (str.ElementAt(i).Equals('.')) //only allows for one decimal point in a number
+                {
+                    validChars = (char[]) validChars.Take(10);
                 }
             }
             return true;
@@ -62,11 +46,11 @@ namespace Personal_Budgeter
             return Math.Ceiling(Decimal.Parse(str));
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        private void Form1_Load(object sender, EventArgs e) //startup procedure: handles the loading of the serialized data (if any)
+        {                                                   //populates the labels with their real values after loading data
             if (File.Exists(Constants.FILENAME))
             {
-                if (new FileInfo(Constants.FILENAME).Length == 0)
+                if (new FileInfo(Constants.FILENAME).Length == 0) //tests if the data file is empty 
                 { //run the inputs
                     data = this.inputsFunction();
                 }
@@ -84,13 +68,12 @@ namespace Personal_Budgeter
             {
                 data = this.inputsFunction();
             }
-            System.Console.Write("heyo");
+          
             updateScreen();
         }
 
-        private void ReceiptEntryButton_Click(object sender, EventArgs e)
+        private void ReceiptEntryButton_Click(object sender, EventArgs e) //adds the reciept amount to the appropriate expense catagory
         {
-
             //parse the amount from text
             DecimalConverter conv = new DecimalConverter();
             decimal enteredDollars = (decimal)conv.ConvertFromString(ReceiptEntryTextBox.Text);
@@ -115,7 +98,7 @@ namespace Personal_Budgeter
 
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e) //serializes the application data back into its file
         {
             //serialize data back into file
             Stream stream = File.Open(Constants.FILENAME, FileMode.Create);
@@ -124,7 +107,7 @@ namespace Personal_Budgeter
             stream.Close();
         }
 
-        private MemStorage inputsFunction()
+        private MemStorage inputsFunction() //prompts the user for the initial budget amount and end date
         {
             
             String input = null;
@@ -161,15 +144,10 @@ namespace Personal_Budgeter
             MemStorage applicationStorage = new MemStorage(totalBudgetDollars, endDate);
 
             return applicationStorage;
-            //remember that we are storing the numbers as integer penny amounts
-            /*todo:
-                 * calculate weekly balanvce left by accessing the system date time
-                 * maybe put in a savings calculation ***feature creep! 
-                */ 
         }
 
 
-        private void updateScreen()
+        private void updateScreen() //updates the text fields of the numeric labels
         {
             //expense value labels are updated with values from the data object
             CumFoodExpLabel.Text = data.getTotalFoodSpent().ToString("#####0.00");

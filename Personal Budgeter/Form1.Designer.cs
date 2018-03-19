@@ -104,7 +104,6 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Receipt Entry:";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // VenFoodRadioButton
             // 
@@ -166,7 +165,6 @@
             this.label3.Size = new System.Drawing.Size(60, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "Amount:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // ReceiptEntryTextBox
             // 
@@ -195,7 +193,7 @@
             // CumVenFoodExpLabel
             // 
             this.CumVenFoodExpLabel.AutoSize = true;
-            this.CumVenFoodExpLabel.Location = new System.Drawing.Point(250, 112);
+            this.CumVenFoodExpLabel.Location = new System.Drawing.Point(250, 124);
             this.CumVenFoodExpLabel.Name = "CumVenFoodExpLabel";
             this.CumVenFoodExpLabel.Size = new System.Drawing.Size(54, 17);
             this.CumVenFoodExpLabel.TabIndex = 9;
@@ -204,7 +202,7 @@
             // CumProdExpLabel
             // 
             this.CumProdExpLabel.AutoSize = true;
-            this.CumProdExpLabel.Location = new System.Drawing.Point(250, 81);
+            this.CumProdExpLabel.Location = new System.Drawing.Point(250, 93);
             this.CumProdExpLabel.Name = "CumProdExpLabel";
             this.CumProdExpLabel.Size = new System.Drawing.Size(54, 17);
             this.CumProdExpLabel.TabIndex = 8;
@@ -213,7 +211,7 @@
             // CumEntExpLabel
             // 
             this.CumEntExpLabel.AutoSize = true;
-            this.CumEntExpLabel.Location = new System.Drawing.Point(250, 49);
+            this.CumEntExpLabel.Location = new System.Drawing.Point(250, 61);
             this.CumEntExpLabel.Name = "CumEntExpLabel";
             this.CumEntExpLabel.Size = new System.Drawing.Size(46, 17);
             this.CumEntExpLabel.TabIndex = 7;
@@ -222,7 +220,7 @@
             // CumFoodExpLabel
             // 
             this.CumFoodExpLabel.AutoSize = true;
-            this.CumFoodExpLabel.Location = new System.Drawing.Point(250, 18);
+            this.CumFoodExpLabel.Location = new System.Drawing.Point(250, 30);
             this.CumFoodExpLabel.Name = "CumFoodExpLabel";
             this.CumFoodExpLabel.Size = new System.Drawing.Size(46, 17);
             this.CumFoodExpLabel.TabIndex = 6;
@@ -231,7 +229,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 112);
+            this.label7.Location = new System.Drawing.Point(3, 124);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(223, 17);
             this.label7.TabIndex = 3;
@@ -240,7 +238,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 81);
+            this.label6.Location = new System.Drawing.Point(3, 93);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(199, 17);
             this.label6.TabIndex = 2;
@@ -249,7 +247,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 49);
+            this.label5.Location = new System.Drawing.Point(3, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(231, 17);
             this.label5.TabIndex = 1;
@@ -258,7 +256,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 18);
+            this.label4.Location = new System.Drawing.Point(3, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(175, 17);
             this.label4.TabIndex = 0;

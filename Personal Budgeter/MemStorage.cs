@@ -103,16 +103,16 @@ namespace Personal_Budgeter
             DateTime temp = DateTime.Parse(endOfWeek);
             while (DateTime.Compare(temp, DateTime.Today) < 0)
             {
-                temp = temp.Add(Constants.aWeek);
-                weeklyExpenses = 0;
-                numberofWeeks--;
+                temp = temp.Add(Constants.aWeek); //add weeks until endOfWeek(temp) is after the current date
+                weeklyExpenses = 0; 
+                numberofWeeks--; //decrement the number of weeks so we can calculate the budget per week 
             }
             endOfWeek = temp.ToString("O"); //"O" is the roundtrip formatter for DateTime
             remBudgetWeekStart = getTotalRemBudget();
         }
 
 
-        public void addTo(int category, decimal dollarsToAdd)
+        public void addTo(int category, decimal dollarsToAdd) //adds the dollar amount to the indicated cateory
         {
             if (!(0 <= category && category < numberOfCategories))
                 //fail gracefully
